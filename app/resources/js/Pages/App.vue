@@ -1,6 +1,5 @@
 <template>
     <v-app>
-        <Navbar></Navbar>
         <v-navigation-drawer color="grey-darken-2" permanent></v-navigation-drawer>
         <v-main>
             <v-card>
@@ -20,9 +19,5 @@
 </style>
 
 <script>
-import Navbar from "../components/Navbar";
 
-export default {
-    components: {Navbar}
-}
 </script>
