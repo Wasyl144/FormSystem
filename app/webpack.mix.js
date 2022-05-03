@@ -1,5 +1,4 @@
 const mix = require('laravel-mix');
-const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,9 +12,16 @@ const tailwindcss = require('tailwindcss');
  */
 
 mix.js('resources/js/app.js', 'public/js').vue()
-    .sass('resources/sass/app.scss', 'public/css')
-    .options({
-        postCss: [ tailwindcss('./tailwind.config.js') ]
+    .postCss('resources/css/app.css', 'public/css', [
+        require('postcss-import'),
+        require('tailwindcss'),
+    ])
+    .alias({
+        '@': 'resources/js',
     });
 
-mix.browserSync('127.0.0.1')
+if (mix.inProduction()) {
+    mix.version();
+}
+
+mix.browserSync('localhost')
