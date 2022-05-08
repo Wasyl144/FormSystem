@@ -30,7 +30,7 @@ const logout = () => {
 
 <template>
     <div>
-        <Head title="Test" />
+        <Head :title="title" />
 
         <JetBanner />
 
